@@ -43,7 +43,7 @@ class K8sParserContext:
             #Chiamo la funzione parse del parser
             nodesInfo.append(parser.parse(contentDict, contentStr))
         elif path.endswith('.yml') or path.endswith('.yaml'):
-            yamlSplitted = re.split('^---\n', self._readFile(path), flags=re.MULTILINE)
+            yamlSplitted = re.split('^---', self._readFile(path), flags=re.MULTILINE)
             loader = YAML(typ='safe')
             for yaml in yamlSplitted:
                 content = loader.load(yaml)
